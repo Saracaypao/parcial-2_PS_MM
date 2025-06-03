@@ -58,10 +58,6 @@ public class BookService {
         Book book = bookRepository.findById(id)
                 .orElseThrow(() -> new BookNotFoundException("Libro no encontrado para actualizar"));
 
-        if (title != null && !title.matches(".*\\D.*")) {
-            throw new IllegalArgumentException("El título no puede ser solo números");
-        }
-
         if (title != null) book.setTitle(title);
         if (language != null) book.setLanguage(language);
 
